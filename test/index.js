@@ -52,4 +52,24 @@ describe('async express mw', () => {
     mw();
     expect(called).to.be.ok;
   });
+
+  it('should throw an error if random thing is given', () => {
+    expect(() => wrap('fail!')).to.throw(/Middleware wrapper only accepts functions/);
+  });
+
+  it('should work for an array of middlewares', () => {
+    const middlewares = [
+      async (req, res, next) => {},
+      (req, res, next) => {},
+      async (err, req, res, next) => {}
+    ];
+
+    const mw = wrap(middlewares);
+
+    expect(mw).to.be.a('array');
+    mw.forEach(fn => expect(fn).to.be.a('function'));
+    expect(mw).to.have.lengthOf(3);
+    expect(mw[0]).to.have.lengthOf(3);
+    expect(mw[2]).to.have.lengthOf(4);
+  });
 })

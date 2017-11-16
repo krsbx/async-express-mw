@@ -17,7 +17,7 @@ const errorMw = (fn) => (err, req, res, next) => exec(fn, err, req, res, next);
 
 // Wraps a given middleware function
 const wrap = (middleware) => {
-  if (!typeof middleware === 'function') throw new Error('Middleware wrapper only accepts functions');
+  if (typeof middleware !== 'function') throw new Error('Middleware wrapper only accepts functions');
 
   return middleware.length <= 3 ? standardMw(middleware) : errorMw(middleware);
 }

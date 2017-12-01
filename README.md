@@ -1,10 +1,16 @@
-### Async Express MW
+# Async Express MW
 
 > _Just wraps express middlewares so that you can use `async` functions and have the error passed onto the `next` function._
 
+[![Build Status](https://travis-ci.org/lteacher/async-express-mw.svg?branch=master)](https://travis-ci.org/lteacher/async-express-mw)
+[![Coverage Status](https://coveralls.io/repos/github/lteacher/async-express-mw/badge.svg?branch=master)](https://coveralls.io/github/lteacher/async-express-mw?branch=master)
+[![npm version](https://badge.fury.io/js/async-express-mw.svg)](https://badge.fury.io/js/async-express-mw)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/lteacher/async-express-mw/master/LICENSE.md)
+
+
 Similar to other existing packages it simply provides a lightweight wrapper function which passes any error to the express js `next` function. There were some other packages that needed to transpile, had dependencies or didnt have all features such as allowing array, and error handler so created this. Use it if you want.
 
-#### Usage
+## Usage
 
 Just wrap middlewares with the async wrap thing
 

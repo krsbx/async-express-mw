@@ -1,3 +1,4 @@
 node_modules
+coverage
 .git
-.travis.yml
+.nyc_output

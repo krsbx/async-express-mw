@@ -3,11 +3,11 @@ declare module 'async-express-mw' {
 
   function asyncMw(
     fn: (
-      req: Partial<Request>,
-      res: Partial<Response>,
+      req: Request & Record<any, any>,
+      res: Response & Record<any, any>,
       ...next: [NextFunction]
-    ) => Promise<typeof fn>
-  ): Promise<void>;
+    ) => any
+  ): any;
 
   export = asyncMw;
 }
